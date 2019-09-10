@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 feature 'index page' do
   scenario 'shows welcome header' do
     visit '/'
