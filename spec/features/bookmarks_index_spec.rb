@@ -1,5 +1,5 @@
 feature 'Viewing bookmarks' do
-  scenario "visit'/' bookmarks and see a list of bookmark (URLs)" do
+  scenario "visit '/bookmarks' and see a list of bookmark (URLs)" do
     visit '/bookmarks'
     expect(page).to have_content 'https://www.google.com/'
     expect(page).to have_content 'https://twitter.com/?lang=en'
