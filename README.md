@@ -16,6 +16,8 @@ CREATE DATABASE bookmark_manager;
 
 To set up the appropriate tales, connect to the database i 'psql' and run the SQL scripts in the 'db/migrations' folder in the given order.
 
+Create a test database in the same way.
+
 ### To run the BookmarkManager app:
 
 ```
@@ -74,10 +76,10 @@ User visits '/bookmarks'
 Browser sends get request to app
 Controller asks app for all bookmarks (app asks Bookmark class for Bookmark.all).
 Bookmark class retrieves all bookmarks and returns them to controller.
-Controller renders array of bookmarks to a webpage
+Controller renders array of bookmarks to a webpage.
 Controller sends webpage as response to user.
 
 So this requires:
-  a Controller
+  a controller
   a Bookmark class
   a bookmark view
