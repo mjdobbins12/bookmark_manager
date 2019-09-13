@@ -5,6 +5,6 @@ feature 'deleting bookmarks' do
     fill_in('title', with: "Youtube")
     click_button('Submit')
     first('.bookmark').click_button 'Delete'
-    expect(page).not_to have_link "Youtube"
+    expect(page).not_to have_link("Youtube", href: "http://www.youtube.com")
   end
 end

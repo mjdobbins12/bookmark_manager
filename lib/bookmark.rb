@@ -2,9 +2,10 @@ require 'pg'
 require 'sinatra/base'
 
 class Bookmark
-  attr_reader :url, :title
-  
-  def initialize(url, title)
+  attr_reader :id, :url, :title
+
+  def initialize(id, url, title)
+    @id = id
     @url = url
     @title = title
   end
@@ -16,7 +17,7 @@ class Bookmark
       conn = PG.connect(dbname: 'bookmark_manager')
     end
     bookmarks_all_data = conn.exec( "SELECT * FROM bookmarks" )
-    bookmarks_all_data.map { |row| Bookmark.new(row['url'], row['title']) }
+    bookmarks_all_data.map { |row| Bookmark.new(row['id'], row['url'], row['title']) }
   end
 
   def self.add(url, title)

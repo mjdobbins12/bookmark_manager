@@ -2,6 +2,8 @@ require 'sinatra/base'
 require './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
+  enable :sessions, :method_override
+
   get '/' do
     'Bookmark Manager'
   end
@@ -18,6 +20,10 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks/add' do
     erb :"bookmarks/add"
+  end
+
+  delete '/bookmarks/:id' do
+    p params
   end
 
   run! if app_file == $PROGRAM_NAME
