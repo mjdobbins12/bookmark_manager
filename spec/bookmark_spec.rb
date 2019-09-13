@@ -13,4 +13,14 @@ describe Bookmark do
       expect(bookmarks).to include('Destroy All Software')
       expect(bookmarks).to include('Google')
     end
+
+    it 'deletes a bookmark with the delete class method' do
+      Bookmark.add('http://www.google.com', 'Google')
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+      result = connection.exec("SELECT * FROM bookmarks;")
+      id = result[0]['id']
+      Bookmark.delete(id)
+      bookmarks = Bookmark.all
+      expect(bookmarks.length).to eq(0)
+    end
 end
